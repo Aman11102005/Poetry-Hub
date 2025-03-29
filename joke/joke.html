@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+        * {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ced4da;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color: #e9ecef;
+  padding: 25px;
+  border-radius: 20px;
+  min-height: 80vh;
+  width: 90vw;
+}
+h1 {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.heading {
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  font-size: 50px;
+}
+.joke {
+  width: 80vw;
+  border-radius: 10px;
+  border: 2px solid #ced4da;
+  line-height: 50px;
+  text-align: center;
+  padding: 30px;
+  font-family: "kalam", sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  word-wrap: break-word;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttonload {
+  width: 190px;
+  height: 60px;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 34px;
+  font-size: 22px;
+  font-weight: 900;
+  margin-top: 15px;
+  font-family: cursive;
+}
+.buttonload:hover {
+    color: #ffee10;
+    box-shadow: 0 0 8px #ffee10;
+    text-shadow: 0 0 8px #ffee10;
+  }
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
+}
+
+img {
+  width: 130px;
+  margin-top: 15px;
+}
+
+@media (max-width: 500px) {
+  body {
+    min-height: 0px;
+  }
+  .heading {
+    font-size: 35px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .joke {
+    width: 76vw;
+    height: 320px;
+    font-size: 28px;
+    margin: 14px 0px;
+    overflow: scroll;
+    line-height: 42px;
+    padding: 30px 20px;
+  }
+  .container {
+    width: 79vw;
+    min-height: 82vh;
+    margin-top: 15px;
+  }
+
+  img {
+    width: 125px;
+    margin-top: -25px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="/assets/images/Logo3.png" alt="LOGO" />
+      <h1 class="heading">Joke</h1>
+      <div class="box">
+        <h1 class="joke"></h1>
+        <!-- <button id="btn">New Joke</button> -->
+      </div>
+      <div>
+
+        <button class="buttonload">
+          <!-- <i class="fa fa-spinner fa-spin"></i>Loading -->
+          New Joke
+        </button>
+      </div>
+    </div>
+
+    <script>
+        let joke = document.querySelector(".joke")
+let btn = document.querySelector(".buttonload")
+
+const URL = "https://hindi-jokes-api.onrender.com/jokes?api_key=13614707311bc059a7613c66d106";
+const getFact = async () => {
+  // console.log("Getting data....");
+
+  let response = await fetch(URL); 
+  // console.log(response);
+
+  let data = await response.json() 
+//   console.log(data.jokeContent);       
+joke.innerText = data.jokeContent
+ 
+};
+
+btn.addEventListener("click",()=>{
+  getFact()
+   btn.innerHTML=` <i class="fa fa-spinner fa-spin"></i>Loading`
+  setTimeout(()=>{
+   btn.innerText="New Joke"
+  },1500)
+   
+})
+
+window.addEventListener("load", () => {
+  getFact()
+});
+    </script>
+  </body>
+</html>

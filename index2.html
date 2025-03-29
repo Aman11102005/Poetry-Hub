@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      html{
+        height: 100%;
+      }
+      body {
+        background-color: #ced4da;
+      }
+      .secondPage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* min-height: 100vh; */
+        margin: 130px 0px;
+        background-color: #ced4da;
+      }
+      .box2 {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        width: 900px;
+        height: 350px;
+        background-color: #e9ecef;
+        border-radius: 30px;
+        /* border: 1px solid black; */
+        padding: 30px;
+        line-height: 1px;
+       
+      }
+      .box2 button {
+        width: 200px;
+        height: 60px;
+        background-color: black;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 15px;
+        font-family: cursive;
+      }
+      .box2 button:hover {
+    color: #ffee10;
+    box-shadow: 0 0 8px #ffee10;
+    text-shadow: 0 0 8px #ffee10;
+  }
+
+
+
+
+
+      @media (max-width: 500px) {
+      
+        .box2 {
+          width: 295px;
+          height: 625px;
+          padding: 20px;
+          margin-top: -115px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="secondPage box">
+      <div class="box2">
+        <div>
+            <!-- <img width="100px" src="motivation/Logo.png" alt=""> -->
+            <a href="motivation/motivational.html"><button>Motivation</button></a>
+        </div>
+        <a href="joke/joke.html"><button>Joke</button> </a>
+        <a href="love/love.html"> <button>Love</button> </a>
+        <a href="sad/sad.html"> <button>Sad</button> </a>
+        <a href="attitude/attitude.html"> <button>Attitude</button> </a>
+        <a href="inspiration/inspiration.html"> <button>Inspiration</button> </a>
+        <a href="underConstruction.html"> <button>Story</button> </a>
+      </div>
+    </div>
+  </body>
+</html>
